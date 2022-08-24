@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', fn () => view('home'));
 Route::get('/about', fn () => view('about'));
 Route::get('/gallery', fn () => view('gallery'));
+
+Route::get('/dashboard', fn () => 'dashboard')
+    ->name('dashboard')
+    ->middleware('kmkey');
+
+Route::get('users', [UserController::class, 'index']);
+Route::get('users/{user}', [UserController::class, 'show']);
