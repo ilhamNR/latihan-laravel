@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ProductReview>
  */
-class StoreFactory extends Factory
+class ProductReviewFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,10 @@ class StoreFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->word(),
+            'name' => fake()->name(),
+            'score' => mt_rand(1,5),
+            'review' => fake()->sentence(mt_rand(1,20)),
+            'product_id' => mt_rand(1,50),
             'user_id' => mt_rand(1,50),
             //
         ];
