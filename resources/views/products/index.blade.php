@@ -73,8 +73,8 @@
                             <td>{{ $products['name'] }}</td>
                             <td>{{ $products['price'] }}</td>
                             <td>{{ $products['description'] }}</td>
-                            <td><img src={{ $products['photo'] }} alt=""></td>
-                            <td>{{ $products['store_id'] }}</td>
+                            <td><img src={{ $products['photo'] }} alt="" style="max-width: 250px;"></td>
+                            <td>{{ $products->storeid->name }}</td>
                             <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#updateModal">Update</button>
                                 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog"

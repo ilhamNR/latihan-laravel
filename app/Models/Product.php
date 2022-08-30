@@ -17,4 +17,7 @@ class Product extends Model
         'photo',
         'store_id'
     ];
+    public function storeid(){
+        return $this->belongsTo(Store::class,'store_id','id');
+    }
 }

@@ -22,7 +22,7 @@ class ProductFactory extends Factory
             'slug' => fake()->slug(),
             'price' => fake()->numerify('##########'),
             'description'=> fake()->sentence(mt_rand(1,50)),
-            'photo' => fake()->imageUrl(),
+            'photo' => 'https://www.viewhotels.jp/ryogoku/wp-content/uploads/sites/9/2020/03/test-img.jpg',
             'store_id' => mt_rand(1,50),
             //
         ];

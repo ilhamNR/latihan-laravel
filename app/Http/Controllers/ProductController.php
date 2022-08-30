@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        $storename = Store::find(1)->store_id;
+        $storename = Product::find(1)->storeid->name;
         return view('products.index', [ 'products' => $products, 'storename' =>$storename
         ]);
     }
