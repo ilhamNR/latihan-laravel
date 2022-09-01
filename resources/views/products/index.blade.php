@@ -76,13 +76,13 @@
                             <td><img src={{ $products['photo'] }} alt="" style="max-width: 250px;"></td>
                             <td>{{ $products->storeid->name }}</td>
                             <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#updateModal">Update</button>
-                                <div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="updateModalLabel" aria-hidden="true">
+                                    data-bs-target="#updateModal{{ $key }}">Update</button>
+                                <div class="modal fade" id="updateModal{{ $key }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="updateModal{{ $key }}Label" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="updateModalLabel">Update</h5>
+                                                <h5 class="modal-title" id="updateModal{{ $key }}Label">Update</h5>
                                                 <button type="button" class="close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -93,12 +93,12 @@
                                                     <div class="form-group">
                                                         <label for="name">Name</label>
                                                         <input type="text" class="form-control"
-                                                            id="exampleFormControlInput1" placeholder="joko">
+                                                            id="exampleFormControlInput1" placeholder="{{ $products['name'] }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleFormControlSelect1">Store Name</label>
                                                         <select class="form-control" id="exampleFormControlSelect1">
-                                                            <option>1</option>
+                                                            <option>{{ $products->storeid->name }}</option>
                                                             <option>2</option>
                                                             <option>3</option>
                                                             <option>4</option>
@@ -108,16 +108,16 @@
                                                     <div class="form-group">
                                                         <label for="price">Price</label>
                                                         <input type="number" class="form-control"
-                                                            id="exampleFormControlInput1" placeholder="444444">
+                                                            id="exampleFormControlInput1" placeholder="{{ $products['price'] }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="description">Description</label>
-                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{ $products['description'] }}"></textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="name">Image URL</label>
                                                         <input type="url" class="form-control"
-                                                            id="exampleFormControlInput1" placeholder="www.address.com">
+                                                            id="exampleFormControlInput1" placeholder="{{ $products['photo'] }}">
                                                     </div>
                                                 </form>
                                             </div>
@@ -129,14 +129,14 @@
                                         </div>
                                     </div>
                                 </div><button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal">Delete</button>
+                                data-bs-target="#deleteModal{{ $key }}">Delete</button>
 
                                   <!-- Modal -->
-                                  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                  <div class="modal fade" id="deleteModal{{ $key }}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{ $key }}Label" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                       <div class="modal-content">
                                         <div class="modal-header">
-                                          <h5 class="modal-title" id="deleteModalLabel">Modal title</h5>
+                                          <h5 class="modal-title" id="deleteModal{{ $key }}Label">Modal title</h5>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                           </button>
