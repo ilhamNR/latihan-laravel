@@ -1,27 +1,20 @@
 <x-app-layout title="Users">
     <div class="container">
         <x-card title='Users'>
-            <H1>using php query</H1>
-            <table class="table" id="users">
+            <H1>User Lists</H1>
+            <table class="table" id="table-dummy">
                 <thead>
                     <th>#</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Twitter</th>
+                    <th>City</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
-                    <?php foreach ($users as $key=> $user): ?>
-                    <tr>
-                        <td>{{ ++$key }}</td>
-                        <td>{{ $user['name'] }}</td>
-                        <td>{{ $user['email'] }}</td>
-                        <td>{{ $user['twitter'] }}</td>
-                    </tr>
-                    <?php endforeach ?>
                 </tbody>
             </table>
         </x-card>
-<script>
+        <script>
         $(document).ready(function () {
             var datatable;
             $.ajaxSetup({
@@ -34,10 +27,6 @@
                 datatable = $('#table-dummy').DataTable({
                     processing: true,
                     serverSide: true,
-                    order: [[2, 'desc']],
-                    pageLength : 2,
-                    lengthMenu: [2, 10, 50, 100],
-                    pagingType: "simple",
                     ajax: "{{url()->current()}}",
                     columns: [
                         {data: 'DT_RowIndex'},
@@ -50,6 +39,7 @@
             });
         });
     </script>
+
 
 
     </div>
