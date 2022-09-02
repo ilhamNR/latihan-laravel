@@ -13,6 +13,39 @@
                 <tbody>
                 </tbody>
             </table>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="7oMH5ssTHLB2nHQSQt8skuCx94NEQyiE6qpKbcHA">                                    <div class="d-flex justify-content-center pb-4">
+                                    <div class="h4">Import User</div>
+                                </div>
+                                <label>Pilh File</label>
+                                <div class="custom-file">
+                                    <input required="" type="file" class="form-control" name="file" id="customFile">
+                                </div>
+                                <label style="font-size: 10px">Tipe file : csv,xls,xlsx</label>
+                                <div class="d-flex justify-content-center pb-5">
+                                    <button id="tarif-import" type="submit" class="btn btn-primary" formaction="{{ route('import.user') }}">Import User</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center pb-4">
+                                <div class="h4">Export User</div>
+                            </div>
+                            <div class="d-flex justify-content-center pb-5">
+                                <a class="btn btn-primary" href="/usersexport">Export User</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </x-card>
         <script>
         $(document).ready(function () {

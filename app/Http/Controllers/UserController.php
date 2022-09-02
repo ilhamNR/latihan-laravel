@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use PHPUnit\Framework\MockObject\Stub\ReturnArgument;
 use Yajra\DataTables\Facades\DataTables;
-
+use App\Imports\UsersImport;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 class UserController extends Controller
 {
     public function index()
@@ -56,5 +58,15 @@ class UserController extends Controller
         return view('users.show', [
             'user' => $user,
         ]);
+    }
+    public function export()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
+    public function import()
+    {
+        Excel::import(new UsersImport, 'users.xlsx');
+
+        return redirect('/')->with('success', 'All good!');
     }
 }

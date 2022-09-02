@@ -29,6 +29,8 @@ Route::get('/dashboard', fn () => 'dashboard')
 
 Route::get('users', [UserController::class, 'index']);
 Route::get('users/{user}', [UserController::class, 'show']);
+Route::post('usersimport/', [UserController::class, 'importUser'])->name('import.user');
+Route::get('usersexport/', [UserController::class, 'export'])->name('export.user');
 Route::get('products', [ProductController::class, 'index']);
 Route::get('product/product}', [ProductController::class, 'show']);
 
