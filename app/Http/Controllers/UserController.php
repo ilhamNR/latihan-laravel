@@ -9,6 +9,8 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Imports\UsersImport;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
+
 class UserController extends Controller
 {
     public function index()
@@ -39,10 +41,10 @@ class UserController extends Controller
         if (request()->ajax()) {
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function($item) {
+                ->addColumn('action', function ($item) {
                     $render =
-                    '
-                        <button type="button" href="product/'.$item->id.'"class="btn btn-danger">Hapus</button>
+                        '
+                        <a  method="POST" type="button" href="/users/destroy/' . $item->id . '"class="btn btn-danger">Delete</a>
                     ';
 
                     return $render;
@@ -58,6 +60,28 @@ class UserController extends Controller
         return view('users.show', [
             'user' => $user,
         ]);
+    }
+    public function store(Request $request)
+    {
+        $users = User::create([
+            'name'  =>  $request->name,
+            'email' =>  $request->email,
+            'city'  =>  $request->city
+        ]);
+    }
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->name  = $request->name;
+        $user->email = $request->email;
+        $user->city  = $request->city;
+        $user->save();
+    }
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/users')->with('deleted',$user,' deleted successfully');
     }
     public function export()
     {

@@ -38,8 +38,10 @@ Route::get('/dashboard', fn () => 'dashboard')
 
 Route::get('users', [UserController::class, 'index']);
 Route::get('users/{user}', [UserController::class, 'show']);
+Route::post('users/{id}/update', [UserController::class, 'update'])->name('users.update');
+Route::get('users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 Route::post('usersimport/', [UserController::class, 'importUser'])->name('import.user');
 Route::get('usersexport/', [UserController::class, 'export'])->name('export.user');
 Route::get('products', [ProductController::class, 'index']);
-Route::get('product/product}', [ProductController::class, 'show']);
+Route::get('product/product', [ProductController::class, 'show']);
 
