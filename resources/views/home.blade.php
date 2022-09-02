@@ -9,14 +9,14 @@
                       <!-- small box -->
                       <div class="small-box bg-info">
                         <div class="inner">
-                          <h3>69</h3>
+                          <h3>{{$Productcount}}</h3>
 
                           <p>Total Products</p>
                         </div>
                         <div class="icon">
                           <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="/products" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                     </div>
                     <!-- ./col -->
@@ -24,7 +24,7 @@
                       <!-- small box -->
                       <div class="small-box bg-success">
                         <div class="inner">
-                          <h3>53</h3>
+                          <h3>{{$ProductReviewcount}}</h3>
 
                           <p>Product Reviews</p>
                         </div>
@@ -39,14 +39,14 @@
                       <!-- small box -->
                       <div class="small-box bg-warning">
                         <div class="inner">
-                          <h3>44</h3>
+                          <h3>{{$Usercount}}</h3>
 
                           <p>Total Users</p>
                         </div>
                         <div class="icon">
                           <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="/users" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                     </div>
                     <!-- ./col -->

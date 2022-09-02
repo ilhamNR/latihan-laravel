@@ -5,6 +5,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Models\User;
+use App\Models\Product;
+use App\Models\ProductReview;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +21,14 @@ use App\Http\Controllers\ProductController;
 */
 
 
-
-Route::get('/', fn () => view('home'));
+$Usercount=User::all()->count();
+$Productcount=Product::all()->count();
+$ProductReviewcount=ProductReview::all()->count();
+Route::get('/', fn () => view('home',[
+    'Usercount' => $Usercount,
+    'Productcount' => $Productcount,
+    'ProductReviewcount' => $ProductReviewcount
+]));
 Route::get('/about', fn () => view('about'));
 Route::get('/gallery', fn () => view('gallery'));
 

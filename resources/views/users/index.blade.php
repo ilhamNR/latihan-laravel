@@ -1,7 +1,7 @@
 <x-app-layout title="Users">
     <div class="container">
         <x-card title='Users'>
-            <H1>User Lists</H1>
+            <H1>Users List</H1>
             <table class="table" id="table-dummy">
                 <thead>
                     <th>#</th>
